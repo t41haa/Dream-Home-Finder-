@@ -988,3 +988,105 @@
         body.dark section h2 {
             color: #FF6B00;
         }
+
+/* === MOBILE MENU === */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #FF6B00;
+  cursor: pointer;
+  padding: 8px;
+}
+
+@media (max-width: 768px) {
+  /* Top header mobile */
+  .top-header {
+    padding: 6px 3vw;
+  }
+  .top-header-email {
+    font-size: 0.75rem;
+  }
+  .top-header-email span {
+    display: none;
+  }
+  .top-header-list {
+    font-size: 0.75rem;
+  }
+  
+  /* Main header mobile */
+  header {
+    height: 56px;
+    top: 32px;
+  }
+  
+  .navbar {
+    position: relative;
+  }
+  
+  .logo {
+    font-size: 1.1rem;
+  }
+  
+  .menu-toggle {
+    display: block;
+    z-index: 1001;
+  }
+  
+  nav ul {
+    position: fixed;
+    top: 88px;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    gap: 0.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  nav ul.active {
+    max-height: 500px;
+  }
+  
+  nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+  
+  nav ul li a {
+    display: block;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  .icon-btn {
+    margin: 8px auto;
+  }
+  
+  .hero {
+    margin-top: 88px;
+  }
+  
+  body.dark nav ul {
+    background: #2d2d2d;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 0.95rem;
+  }
+  
+  .top-header-list {
+    font-size: 0.7rem;
+  }
+  
+  .top-header-list i {
+    display: none;
+  }
+}
