@@ -14,39 +14,42 @@
 
 <body>
 
-    <!-- TOP HEADER BAR -->
-    <div class="top-header">
-        <div class="top-header-content">
-            <div class="top-header-email">
-                <i class="fas fa-envelope"></i>
-                <span>info@dreamhomefinder.com</span>
-            </div>
-            <div class="top-header-list" onclick="handleListPropertyClick()">
-                Want to list your property? <i class="fas fa-arrow-right"></i>
-            </div>
-        </div>
+   <!-- TOP HEADER BAR -->
+<div class="top-header">
+  <div class="top-header-content">
+    <div class="top-header-email">
+      <i class="fas fa-envelope"></i>
+      <span>info@dreamhomefinder.com</span>
     </div>
+    <div class="top-header-list" onclick="handleListPropertyClick()">
+      Want to list your property? <i class="fas fa-arrow-right"></i>
+    </div>
+  </div>
+</div>
 
-    <!-- MAIN HEADER -->
-    <header>
-        <nav class="navbar">
-            <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Dream Home Finder</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#properties">Properties</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><button class="icon-btn" id="searchIcon" title="Search Properties"><i
-                            class="fas fa-search"></i></button></li>
-                <li><button class="icon-btn" id="loginBtn" title="Login"><i class="fas fa-user"></i></button></li>
-                <li><button class="icon-btn btn-logout" id="logoutBtn" title="Logout"><i
-                            class="fas fa-sign-out-alt"></i></button></li>
-                <li><button class="icon-btn" id="darkModeToggle" title="Toggle Dark Mode"><i
-                            class="fas fa-moon"></i></button></li>
-            </ul>
-        </nav>
-    </header>
+<!-- MAIN HEADER -->
+<header>
+  <nav class="navbar">
+    <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Dream Home Finder</div>
+    
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    
+    <ul id="navMenu">
+      <li><a href="#home" onclick="closeMenu()">Home</a></li>
+      <li><a href="#about" onclick="closeMenu()">About</a></li>
+      <li><a href="#services" onclick="closeMenu()">Services</a></li>
+      <li><a href="#properties" onclick="closeMenu()">Properties</a></li>
+      <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+      <li><button class="icon-btn" id="searchIcon" title="Search Properties"><i class="fas fa-search"></i></button></li>
+      <li><button class="icon-btn" id="loginBtn" title="Login"><i class="fas fa-user"></i></button></li>
+      <li><button class="icon-btn btn-logout" id="logoutBtn" title="Logout" style="display:none;"><i class="fas fa-sign-out-alt"></i></button></li>
+      <li><button class="icon-btn" id="darkModeToggle" title="Toggle Dark Mode"><i class="fas fa-moon"></i></button></li>
+    </ul>
+  </nav>
+</header>
+
 
 
     <!-- SEARCH MODAL -->
