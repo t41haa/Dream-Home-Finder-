@@ -992,15 +992,52 @@
 /* === MOBILE MENU === */
 .menu-toggle {
   display: none;
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: #FF6B00;
+  background: #FF6B00;
+  border: 2px solid #FF6B00;
+  border-radius: 5px;
+  font-size: 22px;
+  color: white;
   cursor: pointer;
-  padding: 8px;
+  padding: 8px 12px;
+  width: 45px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1002;
+}
+
+.menu-toggle:active {
+  background: #de5700;
+}
+
+/* Fallback if FontAwesome doesn't load */
+.menu-toggle::before {
+  content: "☰";
+  font-size: 24px;
+  display: block;
+  line-height: 1;
+}
+
+.menu-toggle i {
+  display: none;
 }
 
 @media (max-width: 768px) {
+  /* Show hamburger */
+  .menu-toggle {
+    display: flex;
+  }
+  
+  /* If FontAwesome loads, hide fallback */
+  .menu-toggle i {
+    display: block;
+  }
+  
+  .menu-toggle::before {
+    display: none;
+  }
+  
   /* Top header mobile */
   .top-header {
     padding: 6px 3vw;
@@ -1029,11 +1066,6 @@
     font-size: 1.1rem;
   }
   
-  .menu-toggle {
-    display: block;
-    z-index: 1001;
-  }
-  
   nav ul {
     position: fixed;
     top: 88px;
@@ -1042,15 +1074,17 @@
     background: white;
     flex-direction: column;
     padding: 1rem;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     gap: 0.5rem;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.4s ease;
+    z-index: 1000;
   }
   
   nav ul.active {
-    max-height: 500px;
+    max-height: 600px;
+    border-bottom: 2px solid #FF6B00;
   }
   
   nav ul li {
@@ -1060,12 +1094,14 @@
   
   nav ul li a {
     display: block;
-    padding: 10px;
+    padding: 12px;
     width: 100%;
+    font-size: 1rem;
   }
   
   .icon-btn {
     margin: 8px auto;
+    font-size: 22px;
   }
   
   .hero {
@@ -1074,6 +1110,12 @@
   
   body.dark nav ul {
     background: #2d2d2d;
+    border-bottom-color: #FF6B00;
+  }
+  
+  body.dark .menu-toggle {
+    background: #de5700;
+    border-color: #de5700;
   }
 }
 
@@ -1088,5 +1130,11 @@
   
   .top-header-list i {
     display: none;
+  }
+  
+  .menu-toggle {
+    width: 42px;
+    height: 38px;
+    font-size: 20px;
   }
 }
