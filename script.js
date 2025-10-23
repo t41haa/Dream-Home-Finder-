@@ -244,3 +244,39 @@ const properties = [
                 }, 500);
             }
         });
+
+// Mobile menu toggle
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+
+if (menuToggle) {
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    const icon = menuToggle.querySelector('i');
+    if (navMenu.classList.contains('active')) {
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-times');
+    } else {
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+    }
+  });
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+    navMenu.classList.remove('active');
+    const icon = menuToggle.querySelector('i');
+    icon.classList.remove('fa-times');
+    icon.classList.add('fa-bars');
+  }
+});
+
+// Close menu function for nav links
+function closeMenu() {
+  navMenu.classList.remove('active');
+  const icon = menuToggle.querySelector('i');
+  icon.classList.remove('fa-times');
+  icon.classList.add('fa-bars');
+}
