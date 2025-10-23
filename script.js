@@ -245,38 +245,55 @@ const properties = [
             }
         });
 
-// Mobile menu toggle
+// Mobile menu toggle - IMPROVED VERSION
 const menuToggle = document.getElementById('menuToggle');
 const navMenu = document.getElementById('navMenu');
 
-if (menuToggle) {
-  menuToggle.addEventListener('click', () => {
+if (menuToggle && navMenu) {
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
     navMenu.classList.toggle('active');
+    
+    // Update icon
     const icon = menuToggle.querySelector('i');
-    if (navMenu.classList.contains('active')) {
-      icon.classList.remove('fa-bars');
-      icon.classList.add('fa-times');
-    } else {
-      icon.classList.remove('fa-times');
-      icon.classList.add('fa-bars');
+    if (icon) {
+      if (navMenu.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    }
+    
+    // Log for debugging
+    console.log('Menu toggled:', navMenu.classList.contains('active'));
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (navMenu.classList.contains('active') && 
+        !navMenu.contains(e.target) && 
+        !menuToggle.contains(e.target)) {
+      navMenu.classList.remove('active');
+      const icon = menuToggle.querySelector('i');
+      if (icon) {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
     }
   });
 }
 
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-  if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-    navMenu.classList.remove('active');
-    const icon = menuToggle.querySelector('i');
-    icon.classList.remove('fa-times');
-    icon.classList.add('fa-bars');
-  }
-});
-
 // Close menu function for nav links
 function closeMenu() {
-  navMenu.classList.remove('active');
-  const icon = menuToggle.querySelector('i');
-  icon.classList.remove('fa-times');
-  icon.classList.add('fa-bars');
+  if (navMenu) {
+    navMenu.classList.remove('active');
+    const icon = menuToggle.querySelector('i');
+    if (icon) {
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+    }
+  }
 }
+
