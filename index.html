@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dream Home Finder - Find Your Perfect Property</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+
+    <!-- TOP HEADER BAR -->
+    <div class="top-header">
+        <div class="top-header-content">
+            <div class="top-header-email">
+                <i class="fas fa-envelope"></i>
+                <span>info@dreamhomefinder.com</span>
+            </div>
+            <div class="top-header-list" onclick="handleListPropertyClick()">
+                Want to list your property? <i class="fas fa-arrow-right"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header>
+        <nav class="navbar">
+            <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Dream Home Finder</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#properties">Properties</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="icon-btn" id="searchIcon" title="Search Properties"><i
+                            class="fas fa-search"></i></button></li>
+                <li><button class="icon-btn" id="loginBtn" title="Login"><i class="fas fa-user"></i></button></li>
+                <li><button class="icon-btn btn-logout" id="logoutBtn" title="Logout"><i
+                            class="fas fa-sign-out-alt"></i></button></li>
+                <li><button class="icon-btn" id="darkModeToggle" title="Toggle Dark Mode"><i
+                            class="fas fa-moon"></i></button></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- SEARCH MODAL -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-modal-content">
+            <button class="search-modal-close" onclick="closeSearchModal()">&times;</button>
+            <h3>Search Properties</h3>
+            <div class="search-modal-row">
+                <input type="text" id="searchLocation" placeholder="Search by location" />
+                <select id="searchType">
+                    <option value="">All Types</option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="Villa">Villa</option>
+                    <option value="House">House</option>
+                </select>
+                <button id="searchBtn">SEARCH</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HOME / HERO -->
+        <section id="home" class="hero"
+            style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170');">
+            <div class="hero-content">
+                <h1>Find Your Dream Home Today</h1>
+                <p>Browse the best properties, connect with trusted agents, or list your property easily with us.</p>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about">
+            <h2>About Us</h2>
+            <p><strong>Dream Home Finder</strong> is your trusted platform connecting buyers, renters, and sellers with
+                professional agents. We offer the widest curated selection of properties and a seamless digital
+                experience.</p>
+            <div class="about-cards">
+                <div class="about-card">
+                    <i class="fas fa-award"></i>
+                    <h3>10+ Years Experience</h3>
+                    <p>Thousands of happy clients nationwide.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Verified Agents</h3>
+                    <p>Only certified real estate professionals.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Personal Support</h3>
+                    <p>Dedicated team for your journey.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services">
+            <h2>Our Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Property Buying</h3>
+                    <p>Find and purchase verified properties.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-key"></i>
+                    <h3>Property Rentals</h3>
+                    <p>Discover rental homes and apartments.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Agent Network</h3>
+                    <p>Connect with verified professionals.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-video"></i>
+                    <h3>Virtual Tours</h3>
+                    <p>360° video property walkthroughs.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-comments-dollar"></i>
+                    <h3>Loan Assistance</h3>
+                    <p>Best mortgage deals and support.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Market Analysis</h3>
+                    <p>Real-time property market insights.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Legal Support</h3>
+                    <p>Complete legal documentation help.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock customer service.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROPERTIES -->
+        <section id="properties">
+            <h2>Available Properties</h2>
+            <div class="properties-grid" id="propertiesGrid"></div>
+        </section>
+
+        <!-- LIST PROPERTY FORM -->
+        <section id="listProperty" style="padding-top: 2rem;">
+            <form id="listPropertyForm">
+                <h3>List a New Property</h3>
+                <label>Property Title*</label>
+                <input type="text" id="propTitle" required placeholder="Enter property title" />
+                <label>Location*</label>
+                <input type="text" id="propLocation" required placeholder="Enter location" />
+                <label>Type*</label>
+                <select id="propType" required>
+                    <option value="">Select Type</option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="Villa">Villa</option>
+                    <option value="House">House</option>
+                </select>
+                <label>Beds*</label>
+                <input type="number" id="propBeds" required min="1" placeholder="Number of bedrooms" />
+                <label>Baths*</label>
+                <input type="number" id="propBaths" required min="1" placeholder="Number of bathrooms" />
+                <label>Price (USD/Month)*</label>
+                <input type="number" id="propPrice" required min="1" placeholder="Price" />
+                <label>Description*</label>
+                <textarea id="propDesc" required rows="4" placeholder="Property description"></textarea>
+                <label>Image URL*</label>
+                <input type="url" id="propImage" required placeholder="Image URL" />
+                <button type="submit">Add Property</button>
+            </form>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <h2>Contact / Enquiry</h2>
+            <form id="contactForm">
+                <h3>Enquire About a Property</h3>
+                <label>Property</label>
+                <select id="enquireProp" required></select>
+                <label>Your Name*</label>
+                <input type="text" id="userName" required placeholder="Your name" />
+                <label>Your Email*</label>
+                <input type="email" id="userEmail" required placeholder="Your email" />
+                <label>Message*</label>
+                <textarea id="userMessage" required rows="5" placeholder="Write your message"></textarea>
+                <button type="submit">Send Enquiry</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Dream Home Finder. Find your perfect home!</p>
+    </footer>
+
+    <!-- SCROLL TO TOP -->
+    <button id="scrollTopBtn"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- LOGIN MODAL -->
+    <div class="modal" id="loginModal">
+        <div class="modal-inner">
+            <button class="modal-close" onclick="closeLoginModal()">&times;</button>
+            <h2>Login As</h2>
+            <div class="login-btn-group">
+                <button type="button" id="loginUser">User</button>
+                <button type="button" id="loginAgent">Agent</button>
+            </div>
+            <div id="loginNameBlock">
+                <input type="text" id="loginNameInput" placeholder="Enter your name" />
+                <button type="button" id="loginContinueBtn">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- WELCOME MODAL -->
+    <div class="modal" id="welcomeModal">
+        <div class="modal-inner">
+            <button class="modal-close" onclick="closeWelcomeModal()">&times;</button>
+            <h2 id="welcomeTitle"></h2>
+            <p id="welcomeMsg"></p>
+            <button id="welcomeCloseBtn"
+                style="padding: 12px 24px; background: #FF6B00; color: white; border: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; margin-top: 1.5rem; cursor: pointer;">Explore
+                Properties</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
